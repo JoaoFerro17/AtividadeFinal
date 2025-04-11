@@ -236,12 +236,155 @@ To github.com:JoaoFerro17/AtividadeFinal.git
 - Adicionou lógica de soma, escreveu a primeira parte de pedida dos números e o resultado da soma
  
 
-### Beltrano Gomes 
+### Pietro Filla 
 - Como Configurou o Git? não deixe exposto sua chave.
-- Fez `git pull` após o commit de Ciclana.
-- Finalizou o algoritmo com lógica . . .
+  
+compuni@Lab6m15 MINGW64 ~
+$ git config --global --unset user.name
+git config --global --unset user.email
+
+compuni@Lab6m15 MINGW64 ~
+$ ls -al ~/.ssh
+total 21
+drwxr-xr-x 1 compuni 1049089   0 Apr 11 19:59 ./
+drwxr-xr-x 1 compuni 1049089   0 Apr 11 20:00 ../
+-rw-r--r-- 1 compuni 1049089 828 Mar 28 19:50 known_hosts
+-rw-r--r-- 1 compuni 1049089  92 Mar 28 19:50 known_hosts.old
+
+compuni@Lab6m15 MINGW64 ~
+$ rm -f ~/.ssh/id_rsa*
+
+compuni@Lab6m15 MINGW64 ~
+$ git config --global user.name Pietro FIlla
+
+compuni@Lab6m15 MINGW64 ~
+$ git config --global user.email pietrofilla@gmail.com
+
+compuni@Lab6m15 MINGW64 ~
+$ ssh-keygen -t rsa -b 4096 -C pietrofilla@gmail.com
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/compuni/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/compuni/.ssh/id_rsa
+Your public key has been saved in /c/Users/compuni/.ssh/id_rsa.pub
+
+compuni@Lab6m15 MINGW64 ~
+$ eval "$(ssh-agent -s)"
+Agent pid 1341
+
+compuni@Lab6m15 MINGW64 ~
+$ ssh-add ~/.ssh/id_rsa
+Identity added: /c/Users/compuni/.ssh/id_rsa (pietrofilla@gmail.com)
+
+compuni@Lab6m15 MINGW64 ~
+$ ssh -T git@github.com
+git@github.com: Permission denied (publickey).
+
+compuni@Lab6m15 MINGW64 ~
+$ clip < ~/.ssh/id_rsa.pub
+
+compuni@Lab6m15 MINGW64 ~
+$ ssh -T git@github.com
+Hi pietrofilla! You've successfully authenticated, but GitHub does not provide shell access.
+
+compuni@Lab6m15 MINGW64 ~
+$ cd Desktop
+
+compuni@Lab6m15 MINGW64 ~/Desktop
+$ cd AtividadeFinal
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal
+$ git clone git@github.com:JoaoFerro17/AtividadeFinal.git
+Cloning into 'AtividadeFinal'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (6/6), done.
+Receiving objects: 100% (9/9), done.
+remote: Total 9 (delta 0), reused 3 (delta 0), pack-reused 0 (from 0)
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal
+$ cd AtividadeFinal
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 441 bytes | 3.00 KiB/s, done.
+From github.com:JoaoFerro17/AtividadeFinal
+   aa74a2b..2f13dc4  main       -> origin/main
+Updating aa74a2b..2f13dc4
+Fast-forward
+ algoritmo.por | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   algoritmo.por
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git add .
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   algoritmo.por
+
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git commit -m "Terceira modificação - por Pietro"
+[main daaa570] Terceira modificação - por Pietro
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 420 bytes | 420.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:JoaoFerro17/AtividadeFinal.git
+   2f13dc4..daaa570  main -> main
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+compuni@Lab6m15 MINGW64 ~/Desktop/AtividadeFinal/AtividadeFinal (main)
+$
+
+- Fez `git pull` após o commit de Fernando.
+- Finalizou o algoritmo com lógica de subtração
 
 ## Observações
 Os comandos utilizados já estão na etapa "Como configurou o Git" 
 Cada etapa foi realizada por apenas um integrante por vez, primeiro o João Victor, depois o Fernando e Pietro, respeitando a ordem de commits e a integridade do código.
 Fernando: Teve um erro durante o processo e teve que recomeçar desde o inicio 
+Pietro: Tive que refazer após o Fernando errar.
